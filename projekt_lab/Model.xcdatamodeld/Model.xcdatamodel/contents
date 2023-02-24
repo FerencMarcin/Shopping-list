@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Item" representedClassName="Item" syncable="YES">
+        <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="isPacked" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isPurchased" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="itemDescription" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="toList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShopingList" inverseName="toBuy" inverseEntity="ShopingList"/>
+    </entity>
+    <entity name="ShopingList" representedClassName="ShopingList" syncable="YES">
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="isCompleted" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="listDescription" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="shopingDate" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="toBuy" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="toList" inverseEntity="Item"/>
+    </entity>
+    <elements>
+        <element name="Item" positionX="-63" positionY="-18" width="128" height="134"/>
+        <element name="ShopingList" positionX="-54" positionY="18" width="128" height="119"/>
+    </elements>
+</model>
